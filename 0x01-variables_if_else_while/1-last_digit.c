@@ -7,7 +7,7 @@
  * mian - Determines either is greater than 5, is less than 6 or equal to 0
  *
  * Return: Always 0 (success)
-  */
+ */
 int main(void)
 {
 	int n, l;
