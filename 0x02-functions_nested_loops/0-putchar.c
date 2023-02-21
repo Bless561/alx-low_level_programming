@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include <unistd.h>
 #include "main.h"
 
 /**
@@ -10,7 +10,5 @@
  */
 int _putchar(char c)
 {
-	printf(write(1, &c, 1));
-	return (0);
+	return (write(1, &c, 1));
 }
-
