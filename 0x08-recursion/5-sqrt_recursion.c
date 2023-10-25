@@ -1,4 +1,4 @@
-#include "holberton.h"
+#include "main.h"
 
 /**
  * sqr_con - finds square root of n
