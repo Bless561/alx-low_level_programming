@@ -1,67 +1,47 @@
-#include <stdarg.h>
-#include <stdio.h>
-#include <stdlib.h>
 #include "variadic_functions.h"
+#include <stdio.h>
+#include <stdarg.h>
 
-void i_print(va_list i)
+void op_char(char)
 {
-	printf("%d", va_arg(i, int);
+	printf("%c", va_arg(pseudo, char));
 }
 
-void c_print(va_list i)
+void po_int(int)
 {
-	printf("%c", va_arg(i, char);
+	printf("%d", va_arg(pseudo, int));
 }
 
-void f_print(va_list i)
+void op_float(float)
 {
-	printf("%f", va_arg(i, float);
+	printf("%f", va_arg(pseudo, float));
 }
 
-void s_print(va_list i)
+void op_string(char *)
 {
-	if (va_arg(i, char *) == NULL)
-		printf("(nil");
-	else
-		printf("%s", va_arg(i, char *);
+	printf("%s", va_arg(pseudo, char *));
 }
 
-typedef struct print
-{
-	char var;
-	void (*func)(va_list);
-}print_t;
-
-void print_one(char a, va_list ap)
-{
-	int i;
-	print_t list[] = {
-		{'c', i_print},
-		{'i', c_print},
-		{'f', f_print},
-		{'s', s_print},
-		{NULL, NULL},
-	};
-
-	i = 0;
-	while (i < 4)
-	{
-		if (a = list.var[i])
-			list.func[i](ap);
-		i++;
-	}
-}
-
-
-/**
- * print_all - print any type
- * @format - type of variable to print
- * Return: void
- **/
 void print_all(const char * const format, ...)
 {
+	va_list pseudo;
+	va_start(pseudo, format);
+
+	op_t ops[] = {
+		{"c", op_char},
+		{"i", op_int},
+		{"f", op_float},
+		{"s", op_string},
+		{NULL, NULL}
+	};
 	int i;
 
-	i = 0;
-	while (i < for
+
+	while()
+	while()
+		if()
+		if()
+		if()
+
+	printf("\n");
 }
