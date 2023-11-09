@@ -1,37 +1,39 @@
-#include "function_pointers.h"
-
+#include <stdio.h>
+#include <stdlib.h>
+#include "3-calc.h"
 /**
- * main -
- * @array: array to operate on
- * @size: size of array
- * @cmp: compare function
- * Return: nothing
- **/
-int main(int ac, char *argv[])
+ * main - call functions to print answer
+ * @argc: num of arg
+ * @argv: atguments
+ * Return: 0 or errors
+ */
+int main(int argc, char **argv)
 {
-	int num1, num2;
-	char* operator;
+	char aux = argv[2][0];
+	int a = 0, num1 = 0, num2 = 0;
 
-	if (ac != 4)
+	if (argc != 4)
 	{
 		printf("Error\n");
 		exit(98);
 	}
-	if (argv[3] != '+')
+	if (aux != '+' && aux != '-' && aux != '*'
+	     && aux != '/' && aux != '%')
 	{
 		printf("Error\n");
 		exit(99);
 	}
-	if (atoi(argv[2]) == NULL || atoi(argv[4]) == NULL)
+	if (argv[2][1] != '\0')
 	{
-		printf ("Error\n");
-		exit();
+		printf("Error\n");
+		exit(99);
 	}
-	num1 = atoi(argv[2]);
-	num2 = atoi(argv[4]);
-	operator = argv[3];
 
-	calc = get_op_func(operator, num1, num2);
-	printf("%d\n", calc);
+	 num1 = atoi(argv[1]);
+	 num2 = atoi(argv[3]);
+
+	a = (get_op_func(argv[2]))(num1, num2);
+
+	printf("%d\n", a);
 	return (0);
 }
